@@ -1,0 +1,11 @@
+footer{
+    border-top:1px solid #ccc;
+    margin-top: 50px;
+}
+.container{
+    height: 80px;
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 80px;
+}

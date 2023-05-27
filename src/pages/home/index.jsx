@@ -1,7 +1,12 @@
-const HomePage = () => {
-  return (
-    <div>HomePage</div>
-  )
-}
+import Banner from "../../components/clients/home/banner";
 
-export default HomePage
+const HomePage = () => {
+  
+  return (
+    <>
+      <Banner/>
+    </>
+  );
+};
+
+export default HomePage;
