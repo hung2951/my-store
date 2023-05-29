@@ -121,6 +121,7 @@ header .search .btn_icon {
     color: white;
     line-height: 40px;
     cursor: pointer;
+    text-transform: capitalize;
 }
 .header__nav_categories_icon{
     font-size: 30px;
@@ -166,6 +167,7 @@ header .search .btn_icon {
     border-right: 1px solid rgb(209, 209, 209);
     padding: 0 10px;
     margin: 10px 0;
+    text-transform: capitalize;
 }
 .categories_hot a:last-child{
     border: none;
@@ -238,4 +240,5 @@ header .search .btn_icon {
     font-family: 'Times New Roman', Times, serif;
     font-weight: 500;
     font-size: 17px;
+    text-transform: capitalize;
 }

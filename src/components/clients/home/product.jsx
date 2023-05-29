@@ -14,7 +14,7 @@ const Product = () => {
               <p>Trả góp 0%</p>
               <p>Giảm 2.000.000đ</p>
             </div>
-            <NavLink to={`#`}>
+            <NavLink to={`/slug`}>
               <div className={styles.product_img}>
                 <img
                   src="https://www.xtmobile.vn/vnt_upload/product/12_2021/thumbs/(600x600)_crop_iphone-8-plus-64gb-may-cu-99.jpg"

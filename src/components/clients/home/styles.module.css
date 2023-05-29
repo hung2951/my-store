@@ -37,6 +37,7 @@
     padding-left: 20px; 
     color: white;
     line-height: 60px;
+    text-transform: uppercase;
 }
 .products__items{
     display: flex;
