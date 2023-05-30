@@ -5,6 +5,7 @@ import Login from "../pages/login/login";
 import Register from "../pages/login/register";
 import Cart from "../pages/cart";
 import ProductDetail from "../pages/productDetail";
+import UploadImage from "../components/upload/uploadImage";
 
 const RoutesPublic = () => {
   return (
@@ -16,6 +17,7 @@ const RoutesPublic = () => {
       </Route>
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
+      <Route path="upload" element={<UploadImage />} />
     </Routes>
   );
 }
