@@ -8,3 +8,14 @@
 .slick-arrow{
     background-color: black;
 }
+.container-form-login{
+    width: 800px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+}
+.container-form-login p{
+    font-size: 14px;
+    color: #2e2e2e;
+}

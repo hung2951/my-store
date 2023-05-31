@@ -5,13 +5,19 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { NavLink, useLocation } from "react-router-dom";
 import Nav from "../nav";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../redux/features/authSlice";
 const Header = () => {
-  const [activeNav,setActiveNav] = useState(false)
+  const [activeNav, setActiveNav] = useState(false);
   const location = useLocation();
-  
-  const onToggle = ()=>{
-    setActiveNav(!activeNav)
-  }
+  const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const onToggle = () => {
+    setActiveNav(!activeNav);
+  };
+  useEffect(() => {
+    localStorage.setItem("auth_token", token);
+  }, [token]);
   useEffect(() => {
     if (location.pathname == "/") {
       setActiveNav(true);
@@ -19,6 +25,10 @@ const Header = () => {
       setActiveNav(false);
     }
   }, [location]);
+
+  const handleLogout = () =>{
+    dispatch(logout())
+  }
   return (
     <>
       <header>
@@ -51,9 +61,13 @@ const Header = () => {
               <p>Giỏ hàng</p>
             </NavLink>
           </div>
-          <NavLink to="/login" className={styles.account}>
-            <p>Đăng nhập</p>
-          </NavLink>
+          {token == "" ? (
+            <NavLink to="/login" className={styles.account}>
+              <p>Đăng nhập</p>
+            </NavLink>
+          ) : (
+            <div onClick={()=>handleLogout()}>Đăng xuất</div>
+          )}
         </div>
         <div className={styles.header__nav}>
           <div className={styles.header__nav_container}>
