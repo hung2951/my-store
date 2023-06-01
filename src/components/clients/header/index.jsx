@@ -6,18 +6,23 @@ import { NavLink, useLocation } from "react-router-dom";
 import Nav from "../nav";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../../redux/features/authSlice";
+import {
+  authAsyncDecodeToken,
+  isCookie,
+  logout,
+} from "../../../redux/features/authSlice";
 const Header = () => {
   const [activeNav, setActiveNav] = useState(false);
   const location = useLocation();
-  const { token } = useSelector((state) => state.auth);
+  const { accessToken, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const onToggle = () => {
     setActiveNav(!activeNav);
   };
   useEffect(() => {
-    localStorage.setItem("auth_token", token);
-  }, [token]);
+    dispatch(isCookie());
+    dispatch(authAsyncDecodeToken({ token: accessToken }));
+  }, [accessToken]);
   useEffect(() => {
     if (location.pathname == "/") {
       setActiveNav(true);
@@ -26,9 +31,9 @@ const Header = () => {
     }
   }, [location]);
 
-  const handleLogout = () =>{
-    dispatch(logout())
-  }
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <>
       <header>
@@ -61,12 +66,17 @@ const Header = () => {
               <p>Giỏ hàng</p>
             </NavLink>
           </div>
-          {token == "" ? (
+          {user == null ? (
             <NavLink to="/login" className={styles.account}>
               <p>Đăng nhập</p>
             </NavLink>
           ) : (
-            <div onClick={()=>handleLogout()}>Đăng xuất</div>
+            <div className={styles.account__login}>
+              <p>{user.name}</p>
+              <div className={styles.sub_account__login}>
+                <p onClick={() => handleLogout()}>Đăng xuất</p>
+              </div>
+            </div>
           )}
         </div>
         <div className={styles.header__nav}>

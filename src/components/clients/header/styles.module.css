@@ -68,7 +68,7 @@ header .search .btn_icon {
     font-size: 24px;
 }
 
-.account {
+.account,.account__login>p:first-child {
     background-color: #b20000;
     width: 130px;
     border-radius: 10px;
@@ -77,6 +77,7 @@ header .search .btn_icon {
     height: 40px;
     line-height: 40px;
     text-decoration: none;
+    text-transform: capitalize;
 }
 
 .account p {
@@ -84,6 +85,31 @@ header .search .btn_icon {
 }
 .account p:hover{
     color: aliceblue;
+}
+.account__login p{
+    text-align: center;
+    cursor: pointer;
+}
+.account__login{
+    position: relative;
+}
+
+.sub_account__login{
+    padding-top: 20px;
+    background-color: #b20000;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    z-index: 100000;
+    border-radius: 0 0 10px 10px;
+    color: white;
+    overflow: hidden;
+    display: none;
+    transition: all 1s ease;
+}
+.account__login:hover  .sub_account__login{
+    display: block;
+    transition: all 1s ease;
 }
 .cart{
     background-color: #b20000;

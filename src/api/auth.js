@@ -9,3 +9,6 @@ export const register = (data)=>{
 export const getAllUsers = ()=>{
     return instance.get('/users')
 }
+export const decodeToken = (token)=>{
+    return instance.post('/decode-auth',token)
+}

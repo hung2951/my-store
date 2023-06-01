@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { authAsyncLogin } from "../../redux/features/authSlice";
 import { sweetAlert } from "../../ultils/sweetAlert";
+import { setCookie } from "../../ultils/cookies";
+
 const Login = () => {
   const {
     register,
@@ -15,15 +17,19 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onSubmit = async (values) => {
-      const {meta,payload} = await dispatch(authAsyncLogin(values));
-      if (meta.requestStatus == "fulfilled") {
-        sweetAlert("success", "Đăng nhập thành công", false, 1500);
-        setTimeout(() => {
-          navigate("/");
-        }, 1600);
-      }
-      else{
-        sweetAlert("warning",payload.message, true, false);
+      try {
+        const { meta, payload } = await dispatch(authAsyncLogin(values));
+        if (meta.requestStatus == "fulfilled") {
+          sweetAlert("success", "Đăng nhập thành công", false, 1500);
+          setCookie("token", payload.token, 1,"path=/");
+          setTimeout(() => {
+            navigate("/");
+          }, 1600);
+        } else {
+          sweetAlert("warning", payload.message, true, false);
+        }
+      } catch (error) {
+        sweetAlert("error", error, true, false);
       }
   };
   return (
