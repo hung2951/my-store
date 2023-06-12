@@ -4,8 +4,8 @@ import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import { authAsyncRegister } from "../../redux/features/authSlice";
-import { sweetAlert } from "../../ultils/sweetAlert";
+import { authAsyncRegister } from "../../../redux/features/authSlice";
+import {sweetAlert} from '../../../ultils/sweetAlert'
 
 const Register = () => {
   const {

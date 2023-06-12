@@ -4,9 +4,9 @@ import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import { authAsyncLogin } from "../../redux/features/authSlice";
-import { sweetAlert } from "../../ultils/sweetAlert";
-import { setCookie } from "../../ultils/cookies";
+import { authAsyncLogin } from "../../../redux/features/authSlice";
+import { sweetAlert } from "../../../ultils/sweetAlert";
+import { setCookie } from "../../../ultils/cookies";
 
 const Login = () => {
   const {
