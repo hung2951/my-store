@@ -11,6 +11,7 @@ import {
   isCookie,
   logout,
 } from "../../../redux/features/authSlice";
+import TimeClock from "../timeClock";
 const Header = () => {
   const [activeNav, setActiveNav] = useState(false);
   const location = useLocation();
@@ -39,9 +40,10 @@ const Header = () => {
       <header>
         <div className={styles.header__top}>
           <div className={styles.logo}>
-            <NavLink to="/">
-              <img src="https://www.xtmobile.vn/vnt_upload/weblink/logoxt-01-01_1_copy.png" />
-            </NavLink>
+            <NavLink to="/">Phone Store</NavLink>
+            <div>
+              <TimeClock />
+            </div>
           </div>
           <div className={styles.hotline}>
             <div className={styles.hotline_icon}>

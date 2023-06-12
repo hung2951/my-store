@@ -1,6 +1,6 @@
 header {
     background-color: #ff0000;
-    height: 160px;
+    height: auto;
 }
 
 header .header__top,.header__nav {
@@ -13,6 +13,13 @@ header .header__top,.header__nav {
 header .header__nav{
     padding: 20px 0;
     gap: 20px;
+}
+header .logo a{
+    font-size: 30px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 header .logo img {
     width: 170px;
